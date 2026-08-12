@@ -100,12 +100,10 @@ streamlit run app.py
 
 Run locally at `http://localhost:8501`
 
-```
-
 ---
 
 ## 👤 Author
 
-* **Chaitanya Pandi** – [GitHub Profile](https://www.google.com/search?q=https://github.com/chaitanyapandi13)
+* **Chaitanya Pandi** - [GitHub Profile](https://github.com/chaitanyapandi13)
 
 
