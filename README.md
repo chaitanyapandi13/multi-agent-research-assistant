@@ -96,13 +96,9 @@ streamlit run app.py
 
 ---
 
-## 🌐 Deployment Settings (Streamlit Cloud)
+## 📸 Application Demo
 
-When deploying to **Streamlit Community Cloud**, configure your API keys in the app dashboard under **Settings > Secrets**:
-
-```toml
-GROQ_API_KEY = "gsk_your_groq_api_key_here"
-TAVILY_API_KEY = "tvly-your_tavily_api_key_here"
+Run locally at `http://localhost:8501`
 
 ```
 
