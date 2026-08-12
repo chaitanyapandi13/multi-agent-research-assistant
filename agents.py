@@ -1,34 +1,37 @@
-from langchain.agents import create_agent
+import os
+import streamlit as st
+from dotenv import load_dotenv
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from tools import web_search, scrape_url
-from dotenv import load_dotenv
 
+# 1. Load local .env if running on localhost
 load_dotenv()
 
-# model setup
-llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0)
+# 2. Safely retrieve the Groq API key (works both locally and on Streamlit Cloud)
+groq_api_key = os.getenv("GROQ_API_KEY")
 
+# Fallback to Streamlit Secrets if running on Streamlit Cloud
+if not groq_api_key and "GROQ_API_KEY" in st.secrets:
+    groq_api_key = st.secrets["GROQ_API_KEY"]
 
-#1st agent 
+# 3. Model setup with explicit api_key
+llm = ChatGroq(
+    model="llama-3.3-70b-versatile", 
+    temperature=0,
+    groq_api_key=groq_api_key
+)
+
+# 1st agent 
 def build_search_agent():
-    return create_agent(
-        model = llm,
-        tools= [web_search]
-    )
+    return llm.bind_tools([web_search])
 
-#2nd agent 
-
+# 2nd agent 
 def build_reader_agent():
-    return create_agent(
-        model = llm,
-        tools = [scrape_url]
-    )
+    return llm.bind_tools([scrape_url])
 
-
-#writer chain 
-
+# Writer chain 
 writer_prompt = ChatPromptTemplate.from_messages([
     ("system", "You are an expert research writer. Write clear, structured and insightful reports."),
     ("human", """Write a detailed research report on the topic below.
@@ -49,10 +52,9 @@ Be detailed, factual and professional."""),
 
 writer_chain = writer_prompt | llm | StrOutputParser()
 
-#critic_chain 
-
+# Critic chain 
 critic_prompt = ChatPromptTemplate.from_messages([
-     ("system", "You are a sharp and constructive research critic. Be honest and specific."),
+    ("system", "You are a sharp and constructive research critic. Be honest and specific."),
     ("human", """Review the research report below and evaluate it strictly.
 
 Report:
