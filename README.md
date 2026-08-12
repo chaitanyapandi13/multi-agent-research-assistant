@@ -109,8 +109,4 @@ TAVILY_API_KEY = "tvly-your_tavily_api_key_here"
 
 * **Chaitanya Pandi** – [GitHub Profile](https://www.google.com/search?q=https://github.com/chaitanyapandi13)
 
-```
-
----
-
 
