@@ -2,7 +2,7 @@
 
 An intelligent web application that automates deep web research and generates structured summary reports using a multi-agent AI system powered by Groq and the Tavily Search API.
 
-🚀 **[Live Demo](https://multi-agent-research-assistant.streamlit.app/)** | 📂 **[GitHub Repository](https://github.com/chaitanyapandi13/multi-agent-research-assistant)**
+🚀📂 **[GitHub Repository](https://github.com/chaitanyapandi13/multi-agent-research-assistant)**
 
 ---
 
