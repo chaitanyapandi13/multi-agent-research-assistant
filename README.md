@@ -18,11 +18,14 @@ An intelligent web application that automates deep web research and generates st
 
 ## 🛠️ Tech Stack
 
-* **Frontend / UI:** Streamlit
-* **LLM Engine:** Groq API
-* **Search Engine:** Tavily Search API
-* **Language:** Python 3.13
-* **Version Control & Hosting:** Git, GitHub, Streamlit Community Cloud
+- **Frontend / UI:** Streamlit
+- **LLM Engine:** Groq API (`llama-3.3-70b-versatile`)
+- **Search Engine:** Tavily Search API
+- **Web Scraping:** BeautifulSoup4 (`bs4`) & Requests
+- **Framework:** LangChain (`langchain-groq`, `langchain-core`)
+- **Language:** Python 3.13
+- **Version Control:** Git & GitHub
+- **Environment:** Localhost (`http://localhost:8501`)
 
 ---
 
